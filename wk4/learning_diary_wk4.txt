@@ -1,0 +1,73 @@
+Longcat-----------------
+
+./longcat.sh 1
+
+./longcat.sh 4
+
+./longcat.sh -101
+
+
+Daily maximum-------------------
+
+go to ukkonode (182 preferable)
+
+cd /tmp
+
+./max-temp.sh /tmp/lost24/monitor/2011.11.*
+
+./max-temp.sh /tmp/lost24/monitor/2011.10.11
+
+./max-temp.sh /tmp/lost24/monitor
+
+
+
+
+..in TSV format----------------
+
+go to ukko
+
+./max-temp.sh /tmp/lost24/monitor/2011.11.* | ./in-tsv-format.sh
+
+Daily maximums redux-------------------
+
+./daily-maximums-redux.sh /tmp/lost24 | ./in-tsv-format.sh
+
+
+
+Fast draws with GnuPlot-----------------
+
+(dataset stored in max-daily-temps.tsv)-> ./daily-maximums-redux.sh /tmp/lost24 | ./in-tsv-format.sh > max-daily-temps.tsv
+
+gnuplot hptemps-daily-maximum.p
+
+scp pbandyop@ukko182.hpc.cs.helsinki.fi:/tmp/max-daily-temps.eps /home/pbandyop/Linux_Fundamentals/
+
+scp pbandyop@users.cs.helsinki.fi:/home/pbandyop/Linux_Fundamentals/max-daily-temps.eps /home/payel/Documents/Linux_Fundamentals/wk4
+
+check your folder:- /home/payel/Documents/Linux_Fundamentals/wk4 (for file max-daily-temps.eps)
+
+
+Winter is Coming------------------
+
+./min-temp.sh /tmp/lost24/monitor/2011.10.20
+
+./min-temp.sh /tmp/lost24/monitor/2011.10.*
+
+./min-temp.sh /tmp/lost24/monitor
+
+
+
+I didn't see that one coming-----------------
+
+(dataset stored in  min-daily-temps.tsv ) ->  ./daily-minimum-redux.sh /tmp/lost24 | ./in-tsv-format.sh > min-daily-temps.tsv
+
+gnuplot hptemps-daily-combined.p
+
+
+
+Onwards to getopts and switch-------------------
+
+./find-max-or-min.sh -t -w -p /tmp/lost24/monitor/2011.10.*
+
+./find-max-or-min.sh -t -c -p /tmp/lost24/monitor/2011.10.*
+
