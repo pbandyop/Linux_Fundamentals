@@ -1,3 +1,4 @@
+#This file contains the solutions of exercise 1
 Directory setup----------------
 
 find ~/ -type d -name Linux_Fundamentals (for directory)
