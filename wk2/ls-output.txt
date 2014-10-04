@@ -1,0 +1,7 @@
+error
+foo
+learning_diary.txt
+learning_diary.txt~
+ls-output.txt
+ls-unsuccessful.txt
+out

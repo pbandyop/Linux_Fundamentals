@@ -1,0 +1,63 @@
+Two at once!-------------
+
+ls /fooBar > out 2>error
+
+ls > out 2>error
+
+
+Hey, what about stdin?----------
+
+cat
+
+(and type anything) - it show the same output 
+
+Pipelines---------------
+
+ls > ls-output.txt
+wc -l < ls-output.txt 
+
+ls | wc -l
+
+Filters--------------------
+ls | grep 'e' | wc -l
+
+Interlude: bash------------
+
+./ls-homedir.sh
+
+Some assembly required---------------
+
+ ./list-November2011.sh 
+
+Just the pics, ma'am----------
+
+./list-pics.sh
+
+Umm, how much is that?---------
+./count-pics.sh 
+
+Remember the backticks---------
+./backticks.sh 
+
+Everybody together now!------
+
+./everybody-together.sh
+
+Intro to variables-------
+
+choose variables and explain to them
+
+Special shell variables------------
+
+./shell-variable.sh I see a lot of files `ls`
+
+The difference between bash and bash-----
+
+(Left to do)
+
+Remote invocation-----------
+First login to users then to Linux_Fudamentals directory then to wk2 - /home/pbandyop/Linux_Fundamentals/wk2
+
+./remote-invocation.sh ukko180.hpc.cs.helsinki.fi "uptime"
+
+
