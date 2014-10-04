@@ -1,3 +1,4 @@
+This file contains solutions to week 3
 Not glue but tar-------------------
 
 cd ~/Documents/Linux_Fundamentals/wk3/MyTarFolder
