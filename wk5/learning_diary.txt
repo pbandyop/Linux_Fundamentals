@@ -1,0 +1,17 @@
+Counting in your head----------------------------
+
+Go to your laptop's home dirrectory, then to linusfunda week5 folder and run the following bash script.
+
+./average.sh 5.7 -0.9 67 -123
+
+
+Hipstafy-dropbox------------------------------------
+
+payel@ubuntu:~/Documents/Linux_Fundamentals/wk5$ ./hipstafy-wait.sh 
+
+after starting this bash script, do from Desktop
+
+mv WebProg.txt hipstafy-dropbox/
+
+mv 1.jpg hipstafy-dropbox/
+
