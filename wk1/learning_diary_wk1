@@ -1,0 +1,98 @@
+Directory setup----------------
+
+find ~/ -type d -name Linux_Fundamentals (for directory)
+find ~/ -type f -name "learning_diary_wk1" (for files)
+
+Output redirection-----
+ls ~ >/home/payel/Documents/Linux_Fundamentals/wk1/list-home-directory.txt
+
+Man pages----
+ls -s (shows the size)
+
+Identity shift-----------
+
+alias d="ls"
+d ~> /home/payel/Documents/Linux_Fundamentals/wk1/list-home-directory.txt
+
+Man of chrome-------------------
+
+alias cman="man --html=chromium-browser"
+cman ls
+
+Permanent changes----------------
+
+done by opening :
+vi .bashrc
+
+and edited the alias part
+
+Remote shells with SSH--------------
+
+ssh -l pbandyop users.cs.helsinki.fi
+
+ssh ukko182.hpc.cs.helsinki.fi
+
+Remote invocations with SSH------------
+
+ssh ukko182.hpc.cs.helsinki.fi "ls"
+
+different output
+
+Private and public keys---------(refered tutorial-> http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/)
+
+1. ssh-keygen -t rsa
+2. cd .ssh 
+3. ls (inside ssh to see whether you get id_rsa and id_rsapub files)
+4. ssh-copy-id -i ~/.ssh/id_rsa.pub remote-host (here remote host is ukko182.hpc.cs.helsinki.fi )
+5. ssh remote-host (you won't be asked for password)
+
+What about the passwords?---------
+same as before
+
+(Non-)logins----------------
+
+ssh -l pbandyop users.cs.helsinki.fi "ls"
+
+Shared home directories---------------
+
+ssh ukko180.hpc.cs.helsinki.fi
+cd Linux_fundamentals
+cd ..
+hostname > /cs/fs/home/pbandyop/Linux_fundamentals/hostname.txt
+exit
+
+ssh ukko180.hpc.cs.helsinki.fi
+cat /cs/fs/home/pbandyop/Linux_fundamentals/hostname.txt
+
+
+In one non-login ssh session:-
+
+ssh ukko180.hpc.cs.helsinki.fi "cd Linux_fundamentals; cat hostname.txt"
+
+
+Enter rsync---------------
+
+first login to users then login to ukko node.
+
+then create a file named Sunday.2011.10.30 inside ukko node.
+then type cp --archive ~tkt_cam/public_html/2011/10/30 /cs/fs/home/pbandyop/Linux_fundamentals/Sunday.2011.10.30
+
+then create a new file named test, which is empty.
+
+then type  rsync --archive ~tkt_cam/public_html/2011/10/30/ /cs/fs/home/pbandyop/Linux_fundamentals/test/
+(here all files are getting stored)
+
+then type  rsync --archive ~tkt_cam/public_html/2011/10/30/ /cs/fs/home/pbandyop/Linux_fundamentals/Sunday.2011.10.30/
+
+rsync --archive --stats ~tkt_cam/public_html/2011/10/30/ /cs/fs/home/pbandyop/Linux_fundamentals/te
+(shows the details of number of files copied out of total number of filesexisted and all that).
+
+Time and date-----------------
+date +%A%Y.%m.%d
+
+
+Inserting date----------
+login to ukko then go to Linux_fundamentals directory
+./rsync-todays-Exactum-cam.sh
+
+
