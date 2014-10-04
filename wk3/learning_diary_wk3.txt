@@ -1,0 +1,88 @@
+Not glue but tar-------------------
+
+cd ~/Documents/Linux_Fundamentals/wk3/MyTarFolder
+
+tar czf destinatin-archive.tar.gz *.sh
+
+tar cjf destinatin-archive.tar.bz2 *.sh
+
+then check the properties of each compressed file.
+
+Figure out how to bypass tar's shortcut and call bzip2 and gzip explicitly by using a pipeline. (confused)
+
+tar cf - *sh | bzip2 > output-file.suffix
+
+tar cf - *sh | gzip > output-file-gzip.suffix
+
+
+Local and network file systems----------------
+
+My ukko node 182 from there /tmp
+
+Fetch and extract----------------------
+
+go to ukkonode
+
+then type cd /tmp
+then write the following command
+
+wget -q -O- http://wiki.helsinki.fi/download/attachments/124126879/lost24-monitor-temps-and-fans-v2.tar.bz2 | tar xvj
+
+No more disk space----------------------
+
+wget the file lost24 in ukko Linux fundamentals directory then exit and type the following:
+
+ssh ukko182.hpc.cs.helsinki.fi "bzip2 ~/Linux_fundamentals/lost24-monitor-temps-and-fans-v2.tar.bz2" | tar -xvj
+
+Ready, steady, go---------------------------
+
+First method:-
+
+go to ukko-tmp-mktemp
+time wget -q -O- http://wiki.helsinki.fi/download/attachments/124126879/lost24-monitor-temps-and-fans-v2.tar.bz2 | tar xvj
+
+Second method:-
+
+from user (home directory)
+
+time ssh ukko182.hpc.cs.helsinki.fi "tar xvjf ~/Linux_fundamentals/lost24-monitor-temps-and-fans-v2.tar.bz2 -C /tmp/payel_time"
+
+this takes more time than above method
+
+grep and cut-----------------------------
+
+login to ukko182 and then write the following command from any directory
+
+find /tmp/lost24/monitor/2011.12.25/ -type f -name "hp-temps.txt" | xargs grep -w "#1" | cut -c82-83 | sort | uniq
+
+Don't run with scissors-------------------
+
+ echo "#1        PROCESSOR_ZONE       49C/120F   62C/143F" | sed -e 's/\ \+/,/g' -e 's/\/\+/,/g'
+
+Too long, didn't read------------------------
+
+ find /tmp/lost24/monitor/2011.11.* -type f -name "hp-temps.txt" | xargs grep -w "#1" | cut -c82-83 | sort | uniq
+
+
+Escape to a true friend-----------------
+
+do it in your own lappy's home folder (default)
+
+find /home/payel/Documents/ -name '*.jpg'  (works)
+
+find /home/payel/Documents/ -name *.jpg    (doesn't works)
+
+The Immelmann----------------------------
+
+payel@ubuntu:~/Documents/Linux_Fundamentals/wk3$ ./hipstafy.sh pics
+
+Hottest day--------------
+
+go to ukko node (182 preferable)
+
+cd tmp
+
+invoke test.sh
+
+./tesh.sh  (and wait for few minutes)
+
